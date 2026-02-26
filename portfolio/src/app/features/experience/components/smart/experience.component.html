@@ -1,0 +1,62 @@
+<section id="experience" class="experience">
+    <div class="container">
+        <app-section-title badge="Experiência" preText="Minha " highlighted="Jornada Profissional"
+            subtitle="6 anos construindo produtos que movem negócios." />
+
+        <div class="timeline">
+            @for (exp of experiences; track exp.id; let i = $index) {
+            <div class="timeline__item animate-on-scroll" [class]="'stagger-' + (i + 1)">
+                <div class="timeline__connector">
+                    <div class="timeline__dot" [class.current]="exp.isCurrent"></div>
+                    @if (!$last) {
+                    <div class="timeline__line"></div>
+                    }
+                </div>
+
+                <div class="timeline__card">
+                    <div class="timeline__header">
+                        <div class="timeline__meta">
+                            <div class="timeline__company-row">
+                                <h3 class="timeline__company">{{ exp.company }}</h3>
+                                @if (exp.isCurrent) {
+                                <span class="timeline__badge-current">Atual</span>
+                                }
+                                <span class="timeline__type" [class]="'type-' + exp.type">
+                                    {{ exp.type === 'freelance' ? 'Freelancer' : exp.type === 'internship' ? 'Estágio' :
+                                    'CLT' }}
+                                </span>
+                            </div>
+                            <div class="timeline__role">{{ exp.role }}</div>
+                            <div class="timeline__period-location">
+                                <span>📅 {{ exp.period }}</span>
+                                <span>📍 {{ exp.location }}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="timeline__description">{{ exp.description }}</p>
+
+                    <ul class="timeline__achievements">
+                        @for (achievement of exp.achievements; track achievement.text) {
+                        <li class="timeline__achievement">
+                            @if (achievement.metric && achievement.metric.length <= 10) { <span
+                                class="timeline__achievement-metric">{{ achievement.metric }}</span>
+                                } @else {
+                                <span class="timeline__achievement-bullet">→</span>
+                                }
+                                {{ achievement.text }}
+                        </li>
+                        }
+                    </ul>
+
+                    <div class="timeline__tags">
+                        @for (tag of exp.tags; track tag) {
+                        <app-tag-chip [label]="tag" size="sm" />
+                        }
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</section>

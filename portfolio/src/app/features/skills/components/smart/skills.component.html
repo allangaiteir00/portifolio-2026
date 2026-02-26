@@ -1,0 +1,42 @@
+<section id="skills" class="skills">
+    <div class="container">
+        <app-section-title badge="Habilidades" preText="Meu " highlighted="Arsenal Técnico"
+            subtitle="Tecnologias e práticas que uso para entregar produtos de alto impacto." />
+
+        <div class="skills__grid">
+            @for (group of skillGroups; track group.category; let gi = $index) {
+            <div class="skills__group animate-on-scroll" [class]="'stagger-' + (gi + 1)">
+                <div class="skills__group-header">
+                    <span class="skills__group-icon">{{ group.icon }}</span>
+                    <h3 class="skills__group-label">{{ group.label }}</h3>
+                </div>
+
+                <div class="skills__list">
+                    @for (skill of group.skills; track skill.name) {
+                    <div class="skill-item">
+                        <div class="skill-item__header">
+                            <span class="skill-item__name">{{ skill.name }}</span>
+                            <span class="skill-item__level">{{ skill.level }}%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar__fill" [attr.data-level]="skill.level" [style.width.%]="0"></div>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+            }
+        </div>
+
+        <!-- Tech Tags Cloud -->
+        <div class="skills__tags animate-on-scroll">
+            <h4 class="skills__tags-label">Também trabalho com:</h4>
+            <div class="skills__tags-list">
+                @for (tag of ['Angular Material', 'GSAP', 'RxJS', 'Signals', 'Reactive Forms', 'WhatsApp API',
+                'Clicksign', 'LGPD', 'LLMs / IA', 'SaaS Multi-tenant', 'Webpack', 'Nx Monorepo']; track tag) {
+                <app-tag-chip [label]="tag" size="sm" />
+                }
+            </div>
+        </div>
+    </div>
+</section>

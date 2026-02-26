@@ -1,0 +1,81 @@
+<section id="about" class="about">
+    <div class="container">
+        <app-section-title badge="Sobre Mim" preText="Quem está " highlighted="por trás do código"
+            subtitle="Full Stack com alma de produto — construo tecnologia que simplifica e impacta." />
+
+        <div class="about__grid">
+            <!-- Bio Column -->
+            <div class="about__bio animate-on-scroll">
+                <div class="about__avatar">
+                    <div class="about__avatar-ring"></div>
+                    <div class="about__avatar-inner">
+                        <span class="about__avatar-initials">AG</span>
+                    </div>
+                    <div class="about__avatar-badge">
+                        <span>🏆</span>
+                        <span class="about__avatar-badge-text">Melhor Funcionário<br>Q3 2021</span>
+                    </div>
+                </div>
+
+                <div class="about__bio-text">
+                    <p>
+                        Comecei minha jornada em <strong>novembro de 2020</strong> como estagiário e aprendi Angular do
+                        zero em <strong>2 semanas</strong>.
+                        Em poucos meses, assumi os projetos de desenvolvedores sêniores que saíram da empresa.
+                    </p>
+                    <p>
+                        Hoje atuo no <strong>Grupo Mi7</strong> como Desenvolvedor Pleno, onde trabalho com um stack
+                        moderno
+                        (Angular, Django, Next.js, AWS) em produtos SaaS de análise de mercado e ferramentas de IA em
+                        produção.
+                    </p>
+                    <p>
+                        Parallel a isso, sou o criador do <strong>Insight AI</strong> — uma plataforma de inteligência
+                        empresarial
+                        construída do zero com Angular 19+, Signals e arquitetura de workspaces multi-tenant.
+                    </p>
+
+                    <!-- Quick Info -->
+                    <div class="about__quick-info">
+                        <div class="about__info-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            Araras, São Paulo, Brasil
+                        </div>
+                        <div class="about__info-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                                <line x1="8" y1="21" x2="16" y2="21" />
+                                <line x1="12" y1="17" x2="12" y2="21" />
+                            </svg>
+                            Remoto (presencial/híbrido flexível)
+                        </div>
+                        <div class="about__info-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="16 18 22 12 16 6" />
+                                <polyline points="8 6 2 12 8 18" />
+                            </svg>
+                            Aberto para CLT ou PJ
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Values Grid -->
+            <div class="about__values">
+                @for (value of values; track value.title; let i = $index) {
+                <div class="about__value-card animate-on-scroll" [class]="'stagger-' + (i + 2)">
+                    <span class="about__value-icon">{{ value.icon }}</span>
+                    <h3 class="about__value-title">{{ value.title }}</h3>
+                    <p class="about__value-desc">{{ value.desc }}</p>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
