@@ -18,7 +18,7 @@ export class AboutComponent implements AfterViewInit {
     private readonly elementRef = inject(ElementRef);
 
     protected readonly values = [
-        { icon: '⚡', title: 'Velocidade', desc: 'Aprensei Angular do zero em 2 semanas e assumi projetos complexos do dia para a noite.' },
+        { icon: '⚡', title: 'Velocidade', desc: 'Aprendi Angular do zero em 2 semanas e assumi projetos complexos do dia para a noite.' },
         { icon: '🎯', title: 'Impacto', desc: '+45% leads com BNDES, -90% no tempo de relatórios. Código que move métricas de negócio.' },
         { icon: '🏗️', title: 'Arquitetura', desc: 'SOLID, Clean Code e DDD não são buzzwords — são a base de tudo que construo.' },
         { icon: '🤝', title: 'Colaboração', desc: 'Referência técnica no time, mentor e entusiasta de compartilhar conhecimento.' },
