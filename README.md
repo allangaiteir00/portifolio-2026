@@ -1,59 +1,87 @@
-# Portfolio
+# 🚀 Allan Gaiteiro — Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4.
+[![Unit Tests](https://github.com/allangaiteir00/portifolio/actions/workflows/tests.yml/badge.svg)](https://github.com/allangaiteir00/portifolio/actions/workflows/tests.yml)
+[![Build and Deploy](https://github.com/allangaiteir00/portifolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/allangaiteir00/portifolio/actions/workflows/deploy.yml)
 
-## Development server
+Este é o meu portfólio profissional, desenvolvido com o que há de mais moderno no ecossistema **Angular**. O projeto foi concebido para demonstrar não apenas minhas habilidades de front-end, mas também rigor técnico em arquitetura, testes e automação.
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## 🛠️ Stack Tecnológica
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+O projeto utiliza as tecnologias e padrões mais avançados da indústria:
 
-## Code scaffolding
+- **Framework**: [Angular 19+](https://angular.dev/) (Standalone Components & Signals)
+- **Estilização**: Sass (Arquitetura moderna com `@use`) & GSAP para animações de alta performance.
+- **Integração**: GitHub API para carregamento dinâmico de projetos reais.
+- **Build Tool**: Vite (via AnalogJS/Angular CLI) para HMR instantâneo.
+- **Qualidade**: 100% de cobertura de testes unitários.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
-```
+## 🏗️ Arquitetura e Padrões de Projeto
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+O codebase segue rigorosamente os princípios de **Clean Code** e **SOLID**:
 
-```bash
-ng generate --help
-```
+- **Standalone-first**: Sem NgModules, reduzindo o overhead e melhorando o tree-shaking.
+- **Signal-based State**: Gerenciamento de estado reativo e granular com Angular Signals.
+- **SRP (Single Responsibility Principle)**: Divisão clara entre componentes Smart (Containers) e Dumb (Presentational).
+- **DIP (Dependency Inversion)**: Injeção de dependências desacoplada para facilitar testes e manutenção.
+- **Linting & Formatação**: ESLint 9 (Flat Config) & Prettier 3 integrados para garantir consistência em cada commit.
 
-## Building
+---
 
-To build the project run:
+## 🧪 Qualidade e Automação (CI/CD)
 
-```bash
-ng build
-```
+A confiabilidade é fundamental para qualquer projeto profissional:
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- **Testes**: Executados com [Vitest](https://vitest.dev/), garantindo **100% de cobertura** em todos os componentes, services e modelos.
+- **CI**: GitHub Actions valida cada `push` e `pull_request` executando o lint e a suite de testes antes de permitir o merge.
+- **CD**: Deploy automatizado para GitHub Pages via GitHub Actions com permissões de segurança robustas.
 
-## Running unit tests
+---
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## 💻 Como Rodar o Projeto Localmente
 
-```bash
-ng test
-```
+### Pré-requisitos
+- Node.js (versão 20 ou superior)
+- npm (versão 10 ou superior)
 
-## Running end-to-end tests
+### Passo a Passo
 
-For end-to-end (e2e) testing, run:
+1. **Clonar o repositório**:
+   ```bash
+   git clone https://github.com/allangaiteir00/portifolio.git
+   cd portifolio
+   ```
 
-```bash
-ng e2e
-```
+2. **Instalar dependências**:
+   ```bash
+   npm install
+   ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+3. **Iniciar o servidor de desenvolvimento**:
+   ```bash
+   npm start
+   ```
+   Acesse: `http://localhost:4200/`
 
-## Additional Resources
+4. **Executar Testes**:
+   ```bash
+   npm test
+   ```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+5. **Validar Linting**:
+   ```bash
+   npm run lint
+   ```
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Sinta-se à vontade para explorar e usar como referência.
+
+---
+
+Desenvolvido com 💙 por **Allan Gaiteiro**.
