@@ -1,0 +1,77 @@
+<button
+  class="sg-fab"
+  (click)="toggleVisibility()"
+  [class.active]="isVisible()"
+  aria-label="Toggle Snake Game"
+>
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+  >
+    <path d="M11 21H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v6" />
+    <rect x="14" y="14" width="8" height="8" rx="2" />
+    <path d="M6 11h4" />
+    <path d="M8 9v4" />
+  </svg>
+</button>
+
+@if (isVisible()) {
+  <div class="snake-game glass popup">
+    <div class="sg-header">
+      <div>
+        <h4 class="sg-title">Dev Break: Snake</h4>
+        <p class="sg-subtitle">Use ⬅️ ⬆️ ⬇️ ➡️</p>
+      </div>
+      <div class="sg-scores-wrapper">
+        <div class="sg-score">
+          <span>High Score</span>
+          <strong>{{ highScore() }}</strong>
+        </div>
+        <div class="sg-score">
+          <span>Score</span>
+          <strong class="current">{{ score() }}</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="sg-board">
+      @if (!isPlaying() && !isGameOver()) {
+        <div class="sg-overlay">
+          <button (click)="startGame()" class="sg-btn">▶ START GAME</button>
+        </div>
+      }
+
+      @if (showNewRecord()) {
+        <div class="sg-overlay congrats">
+          <div class="stars">🌟🌟🌟</div>
+          <h4 class="rainbow-text">NEW RECORD!</h4>
+          <p>Score: {{ score() }}</p>
+          <button (click)="startGame()" class="sg-btn">🔄 PLAY AGAIN</button>
+        </div>
+      } @else if (isGameOver()) {
+        <div class="sg-overlay over">
+          <h4>Game Over</h4>
+          <p>Score: {{ score() }}</p>
+          <button (click)="startGame()" class="sg-btn">🔄 TRY AGAIN</button>
+        </div>
+      }
+
+      <div class="sg-grid" [style.grid-template-columns]="'repeat(' + gridSize + ', 1fr)'">
+        @for (row of gridRows; track i; let y = $index; let i = $index) {
+          @for (col of gridRows; track j; let x = $index; let j = $index) {
+            <div
+              class="sg-cell"
+              [class.food]="food().x === x && food().y === y"
+              [class.snake]="isSnake(x, y)"
+              [class.head]="isHead(x, y)"
+            ></div>
+          }
+        }
+      </div>
+    </div>
+  </div>
+}
