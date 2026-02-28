@@ -25,11 +25,13 @@ export class GithubService {
     this.state.update((s) => ({ ...s, loading: true, error: null }));
 
     this.http
-      .get<GithubRepository[]>(`${this.API_URL}/repos?sort=updated&per_page=6`)
+      .get<GithubRepository[]>(`${this.API_URL}/repos?sort=updated&per_page=12`)
       .pipe(
-        map((repos) => repos.filter((repo) => !repo.fork)), // optional: filter forks
+        map((repos) =>
+          repos.filter((repo) => !repo.fork && repo.description && repo.description.trim() !== ''),
+        ),
         tap((repos) => {
-          this.state.update((s) => ({ ...s, repositories: repos, loading: false }));
+          this.state.update((s) => ({ ...s, repositories: repos.slice(0, 6), loading: false }));
         }),
         catchError((err) => {
           this.state.update((s) => ({ ...s, error: err.message, loading: false }));

@@ -12,7 +12,9 @@ describe('GithubService', () => {
   const mockRepos: Partial<GithubRepository>[] = [
     { id: 1, name: 'repo1', fork: false, description: 'desc1' },
     { id: 2, name: 'repo2', fork: true, description: 'desc2' },
-    { id: 3, name: 'repo3', fork: false, description: 'desc3' },
+    { id: 3, name: 'repo3', fork: false, description: '' },
+    { id: 4, name: 'repo4', fork: false, description: null },
+    { id: 5, name: 'repo5', fork: false, description: 'desc5' },
   ];
 
   beforeEach(() => {
@@ -31,17 +33,17 @@ describe('GithubService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should load repositories and filter forks', () => {
+  it('should load repositories and filter forks and empty descriptions', () => {
     service.loadRepositories();
     expect(service.loading()).toBe(true);
 
-    const req = httpMock.expectOne((req) => req.url.includes('/repos'));
+    const req = httpMock.expectOne((req) => req.url.includes('/repos') && req.url.includes('per_page=12'));
     expect(req.request.method).toBe('GET');
     req.flush(mockRepos);
 
     expect(service.loading()).toBe(false);
     expect(service.repositories().length).toBe(2);
-    expect(service.repositories().every((r) => !r.fork)).toBe(true);
+    expect(service.repositories().every((r) => !r.fork && !!r.description)).toBe(true);
   });
 
   it('should handle error when loading fails', () => {
