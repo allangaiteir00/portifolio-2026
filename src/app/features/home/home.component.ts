@@ -7,18 +7,18 @@ import { ProjectsComponent } from '@features/projects/components/smart/projects.
 import { SkillsComponent } from '@features/skills/components/smart/skills.component';
 
 @Component({
-    selector: 'app-home',
-    standalone: true,
-    imports: [
-        HeroComponent,
-        AboutComponent,
-        SkillsComponent,
-        ExperienceComponent,
-        ProjectsComponent,
-        ContactComponent,
-    ],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: `
+  selector: 'app-home',
+  standalone: true,
+  imports: [
+    HeroComponent,
+    AboutComponent,
+    SkillsComponent,
+    ExperienceComponent,
+    ProjectsComponent,
+    ContactComponent,
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `
     <app-hero />
     <app-about />
     <app-skills />
@@ -27,4 +27,4 @@ import { SkillsComponent } from '@features/skills/components/smart/skills.compon
     <app-contact />
   `,
 })
-export class HomeComponent { }
+export class HomeComponent {}

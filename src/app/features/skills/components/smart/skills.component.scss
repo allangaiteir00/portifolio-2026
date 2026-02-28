@@ -1,103 +1,103 @@
 .skills {
-    &__grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: var(--space-5);
-        margin-bottom: var(--space-7);
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-5);
+    margin-bottom: var(--space-7);
+  }
+
+  &__group {
+    background: var(--bg-glass);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    transition: all var(--transition-base);
+
+    &:hover {
+      border-color: var(--border-accent);
+      background: var(--bg-glass-hover);
     }
 
-    &__group {
-        background: var(--bg-glass);
-        border: 1px solid var(--border);
-        border-radius: var(--radius-lg);
-        padding: var(--space-6);
-        transition: all var(--transition-base);
-
-        &:hover {
-            border-color: var(--border-accent);
-            background: var(--bg-glass-hover);
-        }
-
-        &-header {
-            display: flex;
-            align-items: center;
-            gap: var(--space-3);
-            margin-bottom: var(--space-5);
-        }
-
-        &-icon {
-            font-size: var(--text-2xl);
-        }
-
-        &-label {
-            font-size: var(--text-base);
-            font-weight: var(--weight-semibold);
-            color: var(--text-primary);
-        }
+    &-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-5);
     }
 
-    &__list {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-4);
+    &-icon {
+      font-size: var(--text-2xl);
     }
 
-    // ─── Skill Item ─────────────────────────────────────────────────────────
-    &__tags {
-        padding: var(--space-6);
-        background: var(--bg-glass);
-        border: 1px solid var(--border);
-        border-radius: var(--radius-lg);
-
-        &-label {
-            font-size: var(--text-sm);
-            font-weight: var(--weight-medium);
-            color: var(--text-muted);
-            margin-bottom: var(--space-4);
-            font-family: var(--font-mono);
-        }
-
-        &-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--space-2);
-        }
+    &-label {
+      font-size: var(--text-base);
+      font-weight: var(--weight-semibold);
+      color: var(--text-primary);
     }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  // ─── Skill Item ─────────────────────────────────────────────────────────
+  &__tags {
+    padding: var(--space-6);
+    background: var(--bg-glass);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    &-label {
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+      color: var(--text-muted);
+      margin-bottom: var(--space-4);
+      font-family: var(--font-mono);
+    }
+
+    &-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+  }
 }
 
 .skill-item {
-    &__header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: var(--space-2);
-    }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-2);
+  }
 
-    &__name {
-        font-size: var(--text-sm);
-        font-weight: var(--weight-medium);
-        color: var(--text-primary);
-    }
+  &__name {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    color: var(--text-primary);
+  }
 
-    &__level {
-        font-family: var(--font-mono);
-        font-size: var(--text-xs);
-        color: var(--accent);
-    }
+  &__level {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--accent);
+  }
 }
 
 .skill-bar {
-    height: 6px;
-    background: var(--bg-secondary);
-    border-radius: var(--radius-full);
-    overflow: hidden;
+  height: 6px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
 
-    &__fill {
-        height: 100%;
-        background: var(--gradient-accent);
-        border-radius: var(--radius-full);
-        width: 0;
-        transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        box-shadow: 0 0 8px var(--accent-glow);
-    }
+  &__fill {
+    height: 100%;
+    background: var(--gradient-accent);
+    border-radius: var(--radius-full);
+    width: 0;
+    transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 0 8px var(--accent-glow);
+  }
 }

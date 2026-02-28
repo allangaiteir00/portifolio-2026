@@ -3,184 +3,185 @@
 // =============================================================================
 
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(32px);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-24px);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
+  from {
+    opacity: 0;
+  }
 
-    to {
-        opacity: 1;
-    }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-48px);
-    }
+  from {
+    opacity: 0;
+    transform: translateX(-48px);
+  }
 
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(48px);
-    }
+  from {
+    opacity: 0;
+    transform: translateX(48px);
+  }
 
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
 
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 12px var(--accent-glow);
+  }
 
-    0%,
-    100% {
-        box-shadow: 0 0 12px var(--accent-glow);
-    }
-
-    50% {
-        box-shadow: 0 0 32px var(--accent-glow-strong), 0 0 64px var(--accent-glow);
-    }
+  50% {
+    box-shadow:
+      0 0 32px var(--accent-glow-strong),
+      0 0 64px var(--accent-glow);
+  }
 }
 
 @keyframes gradient-shift {
-    0% {
-        background-position: 0% 50%;
-    }
+  0% {
+    background-position: 0% 50%;
+  }
 
-    50% {
-        background-position: 100% 50%;
-    }
+  50% {
+    background-position: 100% 50%;
+  }
 
-    100% {
-        background-position: 0% 50%;
-    }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @keyframes blink-cursor {
+  0%,
+  100% {
+    opacity: 1;
+  }
 
-    0%,
-    100% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0;
-    }
+  50% {
+    opacity: 0;
+  }
 }
 
 @keyframes spin-slow {
-    from {
-        transform: rotate(0deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
 
-    to {
-        transform: rotate(360deg);
-    }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes scale-in {
-    from {
-        opacity: 0;
-        transform: scale(0.85);
-    }
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
 
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes shimmer {
-    0% {
-        background-position: -200% center;
-    }
+  0% {
+    background-position: -200% center;
+  }
 
-    100% {
-        background-position: 200% center;
-    }
+  100% {
+    background-position: 200% center;
+  }
 }
 
 // ─── Scroll Reveal Utility Classes ────────────────────────────────────────────
 .animate-on-scroll {
-    opacity: 0;
-    transform: translateY(32px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &--slide-left {
+    transform: translateX(-48px);
 
     &.is-visible {
-        opacity: 1;
-        transform: translateY(0);
+      transform: translateX(0);
     }
+  }
 
-    &--slide-left {
-        transform: translateX(-48px);
+  &--slide-right {
+    transform: translateX(48px);
 
-        &.is-visible {
-            transform: translateX(0);
-        }
+    &.is-visible {
+      transform: translateX(0);
     }
+  }
 
-    &--slide-right {
-        transform: translateX(48px);
+  &--scale {
+    transform: scale(0.9);
 
-        &.is-visible {
-            transform: translateX(0);
-        }
+    &.is-visible {
+      transform: scale(1);
     }
-
-    &--scale {
-        transform: scale(0.9);
-
-        &.is-visible {
-            transform: scale(1);
-        }
-    }
+  }
 }
 
 // ─── Stagger Delays ───────────────────────────────────────────────────────────
 @for $i from 1 through 10 {
-    .stagger-#{$i} {
-        transition-delay: #{($i - 1) * 80}ms !important;
-    }
+  .stagger-#{$i} {
+    transition-delay: #{($i - 1) * 80}ms !important;
+  }
 }
