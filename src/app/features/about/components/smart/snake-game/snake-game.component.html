@@ -12,7 +12,8 @@
   <div class="sg-header">
     <div>
       <h4 class="sg-title">Dev Break: Snake</h4>
-      <p class="sg-subtitle">Use ⬅️ ⬆️ ⬇️ ➡️</p>
+      <p class="sg-subtitle hide-mobile">Use ⬅️ ⬆️ ⬇️ ➡️</p>
+      <p class="sg-subtitle show-mobile">Deslize para mover 👆</p>
     </div>
     <div class="sg-scores-wrapper">
       <div class="sg-score">
@@ -57,9 +58,8 @@
       }
     </div>
 
-    <!-- Touch Controls -->
-    @if (!isGameOver()) {
-    <div class="sg-controls">
+    <!-- Touch Controls (Hidden on mobile swipe mode) -->
+    <div class="sg-controls desktop-only">
       <button class="sg-ctrl sg-ctrl--up" (click)="changeDirection('UP')" aria-label="Up">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="m18 15-6-6-6 6" />
@@ -83,7 +83,6 @@
         </button>
       </div>
     </div>
-    }
   </div>
 </div>
 }

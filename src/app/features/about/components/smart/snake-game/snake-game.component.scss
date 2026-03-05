@@ -223,21 +223,69 @@
   }
 }
 
-// ─── Touch Controls ───────────────────────────────────────────────────────
+// ─── Utility classes & Resposiveness ─────────────────────────────────────
+.show-mobile {
+  display: none;
+}
+
+.hide-mobile {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .show-mobile {
+    display: block;
+  }
+
+  .hide-mobile {
+    display: none;
+  }
+
+  .desktop-only {
+    display: none !important;
+  }
+
+  .snake-game.popup {
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    height: 100dvh;
+    border-radius: 0;
+    padding: var(--space-2);
+    display: flex;
+    flex-direction: column;
+
+    .sg-board {
+      flex: 1;
+      aspect-ratio: auto;
+      border: none;
+      border-radius: 0;
+    }
+
+    .sg-header {
+      padding: var(--space-4);
+      background: var(--bg-glass);
+    }
+  }
+}
+
 .sg-controls {
   position: absolute;
   bottom: var(--space-4);
   left: 50%;
   transform: translateX(-50%);
-  display: flex;
+  display: none; // Default hidden, shown only for desktop arrow keys help
   flex-direction: column;
   align-items: center;
   gap: var(--space-1);
   z-index: 20;
-  pointer-events: none;
 
-  @media (min-width: 1025px) {
-    display: none;
+  &.desktop-only {
+    display: flex;
+
+    @media (max-width: 768px) {
+      display: none !important;
+    }
   }
 }
 
@@ -247,8 +295,8 @@
 }
 
 .sg-ctrl {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   background: rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: var(--radius-md);
@@ -256,17 +304,5 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  pointer-events: all;
   backdrop-filter: blur(8px);
-  transition: all var(--transition-fast);
-
-  &:active {
-    background: var(--accent-glow-strong);
-    transform: scale(0.95);
-  }
-
-  svg {
-    opacity: 0.8;
-  }
 }

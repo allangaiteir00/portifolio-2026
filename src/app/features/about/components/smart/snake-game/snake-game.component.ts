@@ -44,6 +44,11 @@ export class SnakeGameComponent implements OnInit, OnDestroy {
   private inputQueue: Direction[] = [];
   private db: IDBDatabase | null = null;
 
+  // Gesture tracking
+  private touchStartX = 0;
+  private touchStartY = 0;
+  private readonly minSwipeDistance = 30; // pixels
+
   ngOnInit() {
     this.initDB();
   }
@@ -109,6 +114,38 @@ export class SnakeGameComponent implements OnInit, OnDestroy {
     if (newDir && this.inputQueue.length < 3) {
       this.inputQueue.push(newDir);
     }
+  }
+
+  @HostListener('touchstart', ['$event'])
+  handleTouchStart(event: TouchEvent) {
+    if (!this.isVisible() || !this.isPlaying() || this.isGameOver()) return;
+    this.touchStartX = event.touches[0].clientX;
+    this.touchStartY = event.touches[0].clientY;
+  }
+
+  @HostListener('touchend', ['$event'])
+  handleTouchEnd(event: TouchEvent) {
+    if (!this.isVisible() || !this.isPlaying() || this.isGameOver()) return;
+
+    const touchEndX = event.changedTouches[0].clientX;
+    const touchEndY = event.changedTouches[0].clientY;
+
+    const deltaX = touchEndX - this.touchStartX;
+    const deltaY = touchEndY - this.touchStartY;
+
+    // Determine swipe direction if distance is significant
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+      if (Math.abs(deltaX) > this.minSwipeDistance) {
+        this.changeDirection(deltaX > 0 ? 'RIGHT' : 'LEFT');
+      }
+    } else {
+      if (Math.abs(deltaY) > this.minSwipeDistance) {
+        this.changeDirection(deltaY > 0 ? 'DOWN' : 'UP');
+      }
+    }
+
+    // Prevent default scrolling on mobile when playing
+    if (event.cancelable) event.preventDefault();
   }
 
   protected changeDirection(newDir: Direction) {
