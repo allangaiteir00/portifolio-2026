@@ -4,10 +4,12 @@ import { FooterComponent } from '@core/components/footer/footer.component';
 import { HeaderComponent } from '@core/components/header/header.component';
 import { SnakeGameComponent } from './features/about/components/smart/snake-game/snake-game.component';
 
+import { ContactBotComponent } from '@core/components/contact-bot/contact-bot.component';
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, FooterComponent, SnakeGameComponent],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, SnakeGameComponent, ContactBotComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <app-header />
@@ -16,6 +18,7 @@ import { SnakeGameComponent } from './features/about/components/smart/snake-game
     </main>
     <app-footer />
     <app-snake-game />
+    <app-contact-bot />
   `,
   styles: [
     `
@@ -26,4 +29,4 @@ import { SnakeGameComponent } from './features/about/components/smart/snake-game
     `,
   ],
 })
-export class App {}
+export class App { }
