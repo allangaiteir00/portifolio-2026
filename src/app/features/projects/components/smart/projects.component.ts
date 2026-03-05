@@ -19,18 +19,6 @@ import { GithubService } from '../../services/github.service';
 
 const PROJECTS: Project[] = [
   {
-    id: 'insight-ai',
-    title: 'Insight AI',
-    description:
-      'Plataforma SaaS de inteligência empresarial com dashboards dinâmicos, workspaces multi-tenant e agentes de IA.',
-    longDescription:
-      'Criado do zero com Angular 19+, Signals, arquitetura standalone e design system próprio. Suporta criação de widgets customizáveis, temas premium, filtros inteligentes e gerenciamento de entidades.',
-    tags: ['Angular 19+', 'TypeScript', 'Signals', 'SaaS', 'Tailwind', 'Multi-tenant'],
-    links: { github: 'https://github.com/AllanGaiteiro/insight-ai' },
-    featured: true,
-    category: 'saas',
-  },
-  {
     id: 'capital-empreendedor',
     title: 'Capital Empreendedor',
     description:
