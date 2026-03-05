@@ -111,6 +111,23 @@ export class SnakeGameComponent implements OnInit, OnDestroy {
     }
   }
 
+  protected changeDirection(newDir: Direction) {
+    if (!this.isPlaying() || this.isGameOver()) return;
+
+    const lastDir =
+      this.inputQueue.length > 0 ? this.inputQueue[this.inputQueue.length - 1] : this.direction();
+
+    let validDir = false;
+    if (newDir === 'UP' && lastDir !== 'DOWN') validDir = true;
+    if (newDir === 'DOWN' && lastDir !== 'UP') validDir = true;
+    if (newDir === 'LEFT' && lastDir !== 'RIGHT') validDir = true;
+    if (newDir === 'RIGHT' && lastDir !== 'LEFT') validDir = true;
+
+    if (validDir && this.inputQueue.length < 3) {
+      this.inputQueue.push(newDir);
+    }
+  }
+
   toggleVisibility() {
     this.isVisible.set(!this.isVisible());
     if (!this.isVisible()) {
